@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body class="main">
+    <div class="left">
+        <div class="logo">
+            <img 
+                src="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.png" 
+                alt="Odin Logo">
+            ODIN
+        </div>
+        <p>Photo By <a href="">Halie West</a> on <a href="">Unsplash</a></p>
+    </div>
+    <div class="right">
+        <div class="content">
+            <div class="text">
+                <p>This is not a real online service! You know you need something like this in your life to help you realiwe
+                    your deepest dreams. Sign up now to get started.</p>
+                <p>You <i>know</i> you want to.</p>
+            </div>
+            <form>
+                <div class="inputs">
+                    <h3>Lets do this!</h3>
+
+                    <div class="input-row">
+                        <div class="input">
+                            <label for="first-name">FIRST NAME</label>
+                            <input type="text" name="first-name" id="first-name" required>
+                        </div>
+                        <div class="input">
+                            <label for="last-name">LAST NAME</label>
+                            <input type="text" name="last-name" id="last-name" required>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input">
+                            <label for="email">EMAIL</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+                        <div class="input">
+                            <label for="tel">PHONE NUMBER</label>
+                            <input type="tel" name="tel" id="tel" required>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" name="password" id="password" required>
+                        </div>
+                        <div class="input">
+                            <label for="pass-confirm">CONFIRM PASSWORD</label>
+                            <input type="password" name="pass-confirm" id="pass-confirm" required>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <button>Create Account</button>
+            </form>
+            <p>Already have an account? <a href="http://">Log In</a></p>
+        </div>
+    </div>
+    <script>
+        let password = document.querySelector('#password');
+        let passConfirm = document.querySelector('#pass-confirm');
+        let confirmSpan = document.querySelector('span');
+
+        const verifPass = () =>{
+            if( password.value != '' && passConfirm.value != '') {
+
+                if (password.value === passConfirm.value) {
+                    password.style.cssText = 'border: 1px solid green';
+                    passConfirm.style.cssText = 'border: 1px solid green';
+                    confirmSpan.innerText = 'Passords match';
+                    confirmSpan.style.color = 'green';
+                }else{
+                    password.style.cssText = 'border: 1px solid red';
+                    passConfirm.style.cssText = 'border: 1px solid red';
+                    confirmSpan.innerText = 'Passords dont match';
+                    confirmSpan.style.color = 'red';
+                }
+
+            }else{
+                password.style.cssText = 'border: 1px solid rgba(0, 0, 0, 0.2)';
+                passConfirm.style.cssText = 'border: 1px solid rgba(0, 0, 0, 0.2)';
+                confirmSpan.innerText = '';
+            }
+        };
+
+        password.addEventListener('blur', verifPass);
+        passConfirm.addEventListener('blur', verifPass);
+    </script>
+</body>
+
+</html>
